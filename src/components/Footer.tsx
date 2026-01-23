@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
 
                 <div className="footer-links-grid">
                     <div className="links-col">
-                        <h5>Navigation</h5>
+                        <h5>Quick Links</h5>
                         <Link to="/" onClick={scrollToTop}>Home</Link>
                         <Link to="/about" onClick={scrollToTop}>About Us</Link>
                         <Link to="/philosophy" onClick={scrollToTop}>Philosophy</Link>
