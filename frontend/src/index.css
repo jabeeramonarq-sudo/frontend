@@ -1,0 +1,133 @@
+:root {
+  /* Primary Background (Deep Slate Blue) */
+  --bg-primary: #0f172a;
+  /* Secondary Sections (Near-black) */
+  --bg-secondary: #020617;
+  /* Light Contrast Blocks (Soft off-white) */
+  --bg-light: #f8fafc;
+
+  /* Primary Accent (Continuity Green) */
+  --accent-primary: #22c55e;
+  /* Secondary Accent (Calm Blue) */
+  --accent-secondary: #38bdf8;
+  /* Warning / Highlight */
+  --accent-warning: #facc15;
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-dark: #1e293b;
+
+  /* Font Families */
+  --font-headings: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-quote: 'DM Sans', sans-serif;
+
+  /* Spacing */
+  --section-padding: 8rem 2rem;
+  --container-max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Transitions */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.watermark {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  font-size: 15vw;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: 0.2em;
+}
+
+.watermark-right {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  font-size: 15vw;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.02);
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: 0.2em;
+}

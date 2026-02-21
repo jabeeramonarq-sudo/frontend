@@ -1,0 +1,139 @@
+.footer-revamp {
+    background-color: var(--bg-secondary);
+    padding: 6rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.logo-img-footer {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-mantra {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-bottom: 2rem;
+}
+
+.social-links-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-icon-link:hover {
+    background: var(--accent-primary);
+    color: #000;
+    transform: translateY(-3px);
+    border-color: var(--accent-primary);
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.links-col h5 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.links-col a,
+.links-col .contact-info-item {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: color 0.3s ease;
+}
+
+.links-col a:hover {
+    color: var(--accent-primary);
+}
+
+.contact-info-item span {
+    font-size: 0.9rem;
+}
+
+.footer-bottom-line {
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.flex-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.legal-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.separator {
+    opacity: 0.3;
+}
+
+@media (max-width: 968px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flex-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}

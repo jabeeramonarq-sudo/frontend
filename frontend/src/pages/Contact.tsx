@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { Mail, MapPin, MessageSquare, Send } from 'lucide-react';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Send, Phone, MessageSquare } from 'lucide-react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
