@@ -15,6 +15,10 @@ const settingsSchema = new mongoose.Schema({
     contactForm: {
         recipientEmail: { type: String, default: '' }
     },
+    footer: {
+        badgeText: { type: String, default: '' },
+        copyrightText: { type: String, default: '' }
+    },
     socialMedia: [
         {
             platform: { type: String },

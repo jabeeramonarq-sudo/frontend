@@ -16,6 +16,10 @@ export interface Settings {
     contactForm: {
         recipientEmail: string;
     };
+    footer: {
+        badgeText: string;
+        copyrightText: string;
+    };
     socialMedia: Array<{
         platform: string;
         url: string;

@@ -31,6 +31,10 @@ interface Settings {
     contactForm: {
         recipientEmail: string;
     };
+    footer: {
+        badgeText: string;
+        copyrightText: string;
+    };
     socialMedia: SocialMedia[];
 }
 
@@ -39,6 +43,7 @@ export default function SettingsPage() {
         logos: { main: "", footer: "", favicon: "" },
         contactInfo: { address: "", email: "", phone: "", mapsUrl: "" },
         contactForm: { recipientEmail: "" },
+        footer: { badgeText: "", copyrightText: "" },
         socialMedia: []
     });
     const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +57,11 @@ export default function SettingsPage() {
                     ...response.data,
                     contactForm: {
                         recipientEmail: response.data?.contactForm?.recipientEmail || ""
-                    }
+                    },
+                    footer: {
+                        badgeText: response.data?.footer?.badgeText || "",
+                        copyrightText: response.data?.footer?.copyrightText || ""
+                    },
                 });
             } catch (error) {
                 toast.error("Failed to load settings");
@@ -112,6 +121,9 @@ export default function SettingsPage() {
                     </TabsTrigger>
                     <TabsTrigger value="integrations" className="data-[state=active]:bg-primary data-[state=active]:text-white">
                         <Globe size={16} className="mr-2" /> Maps & SEO
+                    </TabsTrigger>
+                    <TabsTrigger value="footer" className="data-[state=active]:bg-primary data-[state=active]:text-white">
+                        <Building size={16} className="mr-2" /> Footer Text
                     </TabsTrigger>
                 </TabsList>
 
@@ -282,6 +294,42 @@ export default function SettingsPage() {
                                 <p className="text-[11px] text-slate-500">
                                     Add one or more emails separated by comma. All contact form messages go to this list.
                                 </p>
+                            </div>
+                        </Card>
+                    </TabsContent>
+
+                    <TabsContent value="footer" className="space-y-6">
+                        <Card className="bg-slate-900/50 border-slate-800 p-8">
+                            <div className="space-y-5">
+                                <div className="space-y-2">
+                                    <Label className="text-slate-300">Footer Badge Text</Label>
+                                    <Input
+                                        placeholder="DPIIT Recognised Startup"
+                                        className="bg-slate-950 border-slate-800 text-white"
+                                        value={settings.footer.badgeText}
+                                        onChange={e =>
+                                            setSettings({
+                                                ...settings,
+                                                footer: { ...settings.footer, badgeText: e.target.value }
+                                            })
+                                        }
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label className="text-slate-300">Footer Copyright Text</Label>
+                                    <Input
+                                        placeholder="© {year} Amonarq Systems. All rights reserved."
+                                        className="bg-slate-950 border-slate-800 text-white"
+                                        value={settings.footer.copyrightText}
+                                        onChange={e =>
+                                            setSettings({
+                                                ...settings,
+                                                footer: { ...settings.footer, copyrightText: e.target.value }
+                                            })
+                                        }
+                                    />
+                                    <p className="text-[11px] text-slate-500">Use <code>{"{year}"}</code> to auto-insert current year.</p>
+                                </div>
                             </div>
                         </Card>
                     </TabsContent>

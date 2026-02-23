@@ -13,6 +13,10 @@ export interface Settings {
         phone: string;
         mapsUrl: string;
     };
+    footer: {
+        badgeText: string;
+        copyrightText: string;
+    };
     socialMedia: Array<{
         platform: string;
         url: string;

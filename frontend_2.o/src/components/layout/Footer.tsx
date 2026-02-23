@@ -24,6 +24,12 @@ export function Footer() {
   const mapsUrl =
     settings?.contactInfo?.mapsUrl?.trim() ||
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactAddress)}`;
+  const footerBadge = settings?.footer?.badgeText?.trim() || "DPIIT Recognised Startup";
+  const footerCopyrightTemplate =
+    settings?.footer?.copyrightText?.trim() || "© {year} Amonarq Systems. All rights reserved.";
+  const footerCopyright = footerCopyrightTemplate.includes("{year}")
+    ? footerCopyrightTemplate.replaceAll("{year}", String(currentYear))
+    : footerCopyrightTemplate;
 
   if (isLoading) {
     return (
@@ -39,7 +45,6 @@ export function Footer() {
     <footer className="bg-surface-dark border-t border-border/50 pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          {/* Brand & Mission */}
           <div className="lg:col-span-5 space-y-6">
             <Link to="/" className="inline-block hover:opacity-90 transition-opacity">
               <img
@@ -55,8 +60,8 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               {settings?.socialMedia.map((social) => {
-                const isTwitter = social.platform.toLowerCase() === 'twitter' || social.platform.toLowerCase() === 'x';
-                const Icon = social.platform === 'LinkedIn' ? Linkedin : isTwitter ? XIcon : Globe;
+                const isTwitter = social.platform.toLowerCase() === "twitter" || social.platform.toLowerCase() === "x";
+                const Icon = social.platform === "LinkedIn" ? Linkedin : isTwitter ? XIcon : Globe;
                 return (
                   <a
                     key={social.platform}
@@ -72,7 +77,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation Columns */}
           <div className="lg:col-span-2 space-y-6">
             <h4 className="font-bold text-foreground text-sm uppercase tracking-wider">Product</h4>
             <ul className="space-y-3">
@@ -144,9 +148,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="pt-8 border-t border-border/20 space-y-8">
-          {/* Transparency Statement */}
           <div className="max-w-4xl mx-auto px-6 py-4 bg-primary/5 border border-primary/10 rounded-xl">
             <p className="text-muted-foreground/70 text-[11px] md:text-[12px] text-center leading-relaxed">
               <span className="text-primary/80 font-semibold uppercase mr-2 tracking-wider text-[10px]">Disclaimer:</span>
@@ -154,7 +156,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Copyright & Legal */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-6">
               <Link to="/privacy" className="text-muted-foreground/60 hover:text-primary text-xs transition-colors">
@@ -166,10 +167,10 @@ export function Footer() {
             </div>
 
             <p className="text-muted-foreground/60 text-xs">
-              DPIIT Recognised Startup
+              {footerBadge}
             </p>
             <p className="text-muted-foreground/60 text-xs">
-              © {currentYear} Amonarq Systems. All rights reserved.
+              {footerCopyright}
             </p>
           </div>
         </div>

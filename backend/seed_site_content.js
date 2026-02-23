@@ -629,6 +629,10 @@ const seedSettings = {
     contactForm: {
         recipientEmail: 'contact@amonarq.com'
     },
+    footer: {
+        badgeText: 'DPIIT Recognised Startup',
+        copyrightText: '© {year} Amonarq Systems. All rights reserved.'
+    },
     socialMedia: [
         { platform: 'LinkedIn', url: 'https://linkedin.com/company/amonarq', icon: 'linkedin' },
         { platform: 'X', url: 'https://x.com/amonarq', icon: 'twitter' }
